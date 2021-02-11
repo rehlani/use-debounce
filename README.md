@@ -1,6 +1,6 @@
 # UseDebounce
 
-This react hook declaratively returns a debounced stateful value given an input value. This is useful when combining searches with declarative fetch libraries such as [SWR](https://github.com/vercel/swr)
+This react hook declaratively returns a debounced stateful value given an input value. This is useful when combining searches with declarative fetch libraries such as [SWR](https://github.com/vercel/swr) or [react-refetch](https://github.com/heroku/react-refetch)
 
 ## Example
 
@@ -10,9 +10,9 @@ export default Search() {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // returns the latest value after 500ms to reduce get requests when typing
-  const debouncedSearch = useDebounce<string>(seachQuery, 500);
+  const debouncedQuery = useDebounce<string>(seachQuery, 500);
 
-  const { data: results } = swr(`/api/search?query=${debouncedSearch}`);
+  const { data: results } = swr(`/api/search?query=${debouncedQuery}`);
 
   return (
     <>
