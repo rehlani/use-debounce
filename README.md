@@ -9,7 +9,7 @@ This react hook declaratively returns a debounced stateful value given an input 
 export default Search() {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // returns the latest value after 500ms to reduce get requests when typing
+  // returns the latest value after 500ms to reduce unnecessary GET requests when typing
   const debouncedQuery = useDebounce<string>(seachQuery, 500);
 
   const { data: results } = swr(`/api/search?query=${debouncedQuery}`);
